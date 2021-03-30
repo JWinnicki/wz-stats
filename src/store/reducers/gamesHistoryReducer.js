@@ -13,10 +13,6 @@ const reducer = (state=initialState, action) => {
                 gamesHistory: {},
                 recentStats: {}
             }
-        case actionTypes.FETCH_HISTORY_FAIL:
-            return {
-                ...state
-            }
         case actionTypes.FETCH_HISTORY_SUCCESS:
             return {
                 ...state,

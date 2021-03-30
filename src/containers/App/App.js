@@ -4,37 +4,23 @@ import {connect} from 'react-redux';
 
 //import key from '../../apiKey';
 import users from '../../users';
-import {fetchHistory} from '../../store/actions';
+import {fetchHistory, fetchMatchDetails} from '../../store/actions';
 import './App.module.scss';
 
-const App = ({onFetchHistory}) => {
- /*  const getDetails = async (user, platform) => {
-    try {
-      //const response = await axios.get(`https://www.callofduty.com/api/papi-client/crm/cod/v2/title/mw/platform/battle/fullMatch/wz/11152770713054164043/it`);
-      
-      console.log(response.data)
-    } catch(error) {
-      if(error.response === undefined) {
-          console.log('jakis blad')
-      } else {
-          console.log(error.response.data.message);
-      }
-    }
-
-
-  } */
-
+const App = ({onFetchHistory, onFetchMatchDetails}) => {
   return (
     <div className="App">
       WZ STATS
-      <button onClick={() => onFetchHistory(users[3].tag, users[3].platform)}>LOAD MATCH</button>
+      <button onClick={() => onFetchHistory(users[3].tag, users[3].platform)}>LOAD PROFILE</button>
+      <button onClick={onFetchMatchDetails}>LOAD MATCH</button>
     </div>
   );
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchHistory: (user, platform) => dispatch(fetchHistory(user, platform))
+    onFetchHistory: (user, platform) => dispatch(fetchHistory(user, platform)),
+    onFetchMatchDetails: () => dispatch(fetchMatchDetails())
   }
 }
 
