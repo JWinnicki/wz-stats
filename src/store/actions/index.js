@@ -1,0 +1,3 @@
+export {
+    fetchHistory,
+} from './gamesHistory';
